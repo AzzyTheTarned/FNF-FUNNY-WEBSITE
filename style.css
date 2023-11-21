@@ -39,16 +39,6 @@ nav > a {
     background: rgb(192, 109, 50);
 }
 
-.menu a {
-    display: inline-block;
-    color: #FFFFFF;
-    background-color: rgba(189, 82, 6, 0.865);
-    text-decoration: none;
-    font-size: min(2vw, 2vh);
-    font-weight: bold;
-    padding: 0.5em;
-}
-
 a.active {
     border: solid black min(0.4vw, 0.4vh);
     color: #6d6d6d;
@@ -142,4 +132,63 @@ footer > p {
 
 .right {
     float: right;
+}
+
+
+@media (max-width: 800px) {
+    header {
+        display: none;
+    }
+
+    nav {
+        background-color: #221845;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        align-content: center;
+        margin: 0 0 0 15px;
+    }
+
+    a.active {
+        border-color: white;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+        height: initial;
+    }
+
+    .left, .right {
+        float: none;
+    }
+
+    .card {
+        height: initial;
+    }
+
+    .card > img {
+        clear: both;
+    }
+
+    .img1 {
+        grid-row: initial;
+    }
+
+    .img1 > img {
+        width: initial;
+        position: relative;
+        top: -30px;
+    }
+
+    .gallery-item {
+        height: 90px;
+    }
+
+    .desc {
+        flex-wrap: wrap;
+    }
+
+    .desc > div {
+        width: 100%;
+    }
 }
