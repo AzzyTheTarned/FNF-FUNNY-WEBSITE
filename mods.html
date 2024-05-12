@@ -2,272 +2,113 @@
 <html lang="ru">
 
 <head>
-    <meta charset="utf-8">
-    <title>Самые популярные моды</title>
+    <meta charset="UTF-8">
+    <title>Самые популярные моды FNF</title>
+    <link rel="stylesheet" href="css/mods.css">
 </head>
 
-<body link="#FFF000" vlink="#FDF670" text="#E5C235" bgcolor="#221845" topmargin="30" rightmargin="40" leftmargin="40"
-    bottommargin="30">
-
-    <hr size="3" color="white">
-
-    <h1 align="center"> <code>Меню сайта:</code> </h1>
-
-    <p>
-        <ul type="square" align="center">
-            <li>
-                <a href="index.html"><code>Что такое FNF?</code></a>
-            </li>
-
-            <li>
-                <a href="whitty.html"><code>Самый первый мод FNF</code></a>
-            </li>
-
-            <li type="circle">
-                [Вы здесь]--><a href="mods.html"><code>Самые популярные моды FNF</code></a>
-            </li>
-        </ul>
-    </p>
-
-    <hr size="3" color="white">
-
-    <h1 align="center"><u> Самые популярные моды FNF</u></h1>
-
-    <p align="center">
-        <img src="images/gamebanana-banner.png">
-        <br>
-        <br>
-        В таблице ниже представлены данные о самых скачиваемых модах
-        для FNF за всё время по версии веб-портала GameBanana —
-        самого популярного сервиса для хостинга модификаций для FNF.
-        <br>
-        <img src="images/gamebanana-logo.png">
-        <br>
-        Данные представлены на начало ноября 2023.
-        <br>
-        <br>
-    </p>
-
-    <details>
-        <summary>
-            <code>График</code>
-        </summary>
+<body>
+    <header>
         <form>
-            <table cellpadding="7" align="center">
-                <tr>
-                    <th>
-                        <label for="ox-axis"> Значение по оси X </label>
-                    </th>
-                    <th>
-                        <label for="oy-axis"> Результат </label>
-                    </th>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="radio" name="ox-axis" id="ox-axis" value="epoch"> Эра выхода <br>
-                        <input type="radio" name="ox-axis" id="ox-axis" value="year"> Год выхода <br>
-                    </td>
-                    <td>
-                        <input type="checkbox" name="oy-axis" id="oy-axis" value="downloads"> Количество скачиваний <br>
-                        <input type="checkbox" name="oy-axis" id="oy-axis" value="likes"> Количество лайков <br>
-                        <input type="checkbox" name="oy-axis" id="oy-axis" value="views"> Количество просмотров <br>
-                    </td>
-                </tr>
-            </table>
-
-            <p align="center">
-                <input type="submit" id="graph-submit" value="Построить график">
-            </p>
+            <label for="search-val">Поиск:</label>
+            <input type="text" name="search-val">
+            <input type="submit" value="🔍">
         </form>
-    </details>
+    </header>
 
-    <details>
-        <summary>
-            <code>Фильтр</code>
-        </summary>
-        <form>
-            <ul type="disc" align="center">
-                <li>
-                    <label for="name">Название</label>: <input type="text" name="name" id="name">
-                </li>
-                <li>
-                    <label>
-                        Скачивания: От <input type="number" name="loads-min" id="loads-min" min="0"> До <input
-                            type="number" name="loads-max" id="loads-max" min="0">
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        Лайки: от <input type="number" name="likes-min" id="likes-min" min="0"> до <input type="number"
-                            name="likes-max" id="likes-max" min="0">
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        Просмотры: от <input type="number" name="views-min" id="views-min" min="0"> до <input
-                            type="number" name="views-max" id="views-max" min="0">
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        Эра выхода:
-                        <select name="epoch" id="epoch">
-                            <option value="none">
-                                —
-                            </option>
-                            <option value="old">
-                                Старая эра (2020-Q1 2021)
-                            </option>
-                            <option value="mid">
-                                Средняя эра (2021)
-                            </option>
-                            <option value="new">
-                                Новая эра (2022+)
-                            </option>
-                        </select>
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        Год выхода:
-                        <select name="year" id="year">
-                            <option value="none">
-                                —
-                            </option>
-                            <option value="20">
-                                2020
-                            </option>
-                            <option value="21">
-                                2021
-                            </option>
-                            <option value="22">
-                                2022
-                            </option>
-                            <option value="23">
-                                2023
-                            </option>
-                        </select>
-                    </label>
-                </li>
-            </ul>
+    <nav>
+        <div class="menu">
+            <a href="index.html">Что такое FNF?</a>
+            <a href="whitty.html">Самый первый мод FNF</a>
+            <a href="mods.html" class="active">Самые популярные моды FNF</a>
+        </div>
+        <h1>Самые популярные моды FNF</h1>
+    </nav>
 
-            <p align="center">
-                <input type="submit" id="filter-submit" value="Отфильтровать">
+    <article>
+        <p>
+            <img src="images/gamebanana-banner.png">
+            <br>
+            <br>
+            В таблице ниже представлены данные о самых скачиваемых модах
+            для FNF за всё время по версии веб-портала GameBanana —
+            самого популярного сервиса для хостинга модификаций для FNF.
+            <br>
+            <img src="images/gamebanana-logo.png">
+            <br>
+            Данные представлены на середину мая 2024.
+            <br>
+            <br>
+        </p>
+    </article>
+
+    <div class="forms">
+        <form id="filter">
+            <h4>Фильтр</h4>
+            <p>
+                <label for="name">Название:</label>
+                <input type="text" name="name" id="name"/>
             </p>
-        </form>
-    </details>
-
-    <details>
-        <summary>
-            <code>Сортировка</code>
-        </summary>
-        <form>
-            <ul align="center">
-                <li>
-                    <label>
-                        Первый уровень:
-                        <select name="first-level" id="first-level">
-                            <option value="none">
-                                —
-                            </option>
-                            <option value="downloads">
-                                Количество скачиваний
-                            </option>
-                            <option value="likes">
-                                Количество лайков
-                            </option>
-                            <option value="views">
-                                Количество просмотров
-                            </option>
-                        </select>
-                    </label>
-                    <label>
-                        В обратном порядке:
-                        <input type="checkbox" name="first-in-reverse" id="first-in-reverse">
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        Второй уровень:
-                        <select name="second-level" id="second-level">
-                            <option value="none">
-                                —
-                            </option>
-                            <option value="downloads">
-                                Количество скачиваний
-                            </option>
-                            <option value="likes">
-                                Количество лайков
-                            </option>
-                            <option value="views">
-                                Количество просмотров
-                            </option>
-                        </select>
-                    </label>
-                    <label>
-                        В обратном порядке:
-                        <input type="checkbox" name="second-in-reverse" id="second-in-reverse">
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        Третий уровень:
-                        <select name="third-level" id="third-level">
-                            <option value="none">
-                                —
-                            </option>
-                            <option value="downloads">
-                                Количество скачиваний
-                            </option>
-                            <option value="likes">
-                                Количество лайков
-                            </option>
-                            <option value="views">
-                                Количество просмотров
-                            </option>
-                        </select>
-                    </label>
-                    <label>
-                        В обратном порядке:
-                        <input type="checkbox" name="third-in-reverse" id="third-in-reverse">
-                    </label>
-                </li>
-            </ul>
-
-            <p align="center">
-                <input type="submit" id="sort-submit" value="Сортировать">
+            <p>
+                <label for="loads-min">Скачивания:</label>
+                от <input type="number" name="loads-min" id="loads-min" min="0"/>
+                до <input type="number" name="loads-max" id="loads-max" min="0"/>
             </p>
+            <p>
+                <label for="likes-min">Лайки:</label>
+                от <input type="number" name="likes-min" id="likes-min" min="0"/>
+                до <input type="number" name="likes-max" id="likes-max" min="0"/>
+            </p>
+            <p>
+                <label for="views-min">Просмотры:</label>
+                от <input type="number" name="views-min" id="views-min" min="0"/>
+                до <input type="number" name="views-max" id="views-max" min="0"/>
+            </p>
+            <p>
+                <label for="epoch">Эра выхода:</label>
+                <input type="text" name="epoch" id="epoch"/>
+            </p>
+            <p>
+                <label for="year-min">Год выхода:</label>
+                от <input type="number" name="year-min" id="year-min" min="2020" max="2024"/>
+                до <input type="number" name="year-max" id="year-max" min="2020" max="2024"/>
+            </p>
+            <input type="button" value="Отфильтровать">
+            <input type="button" value="Очистить фильтры">
         </form>
-    </details>
-
-    <br>
-    <br>
-
-    <table cellpadding="5" align="center" border>
-        <tr align="center">
-            <th>Название мода</th>
-            <th>Количество скачиваний</th>
-            <th>Количество лайков</th>
-            <th>Количество просмотров</th>
-            <th>Эра выхода</th>
-            <th>Год выхода</th>
-            <th>Ссылка на GameBanana</th>
-        </tr>
-
-        <tr align="center">
-            <td>The Full-Ass Tricky Mod</td>
-            <td>3800000</td>
-            <td>2900</td>
-            <td>9100000</td>
-            <td>Старая эра (2020-Q1 2021)</td>
-            <td>2021</td>
-            <td>
-                <a href="https://gamebanana.com/mods/44334">
-                    <img src="https://images.gamebanana.com/img/ss/mods/60b7d8741ac99.jpg" width="150">
-                </a>
-            </td>
-        </tr>
-    </table>
     
+        <form id="sort">
+            <h4>Сортировка</h4>
+            <p> Сортировать по</p>
+            <p>
+                <select name="level-first" id="level-first">
+                </select>
+                по убыванию? <input type="checkbox" name="level-first-desc" id="level-first-desc"/>
+            </p>
+            <p>
+                <select name="level-second" id="level-second">
+                </select>
+                по убыванию? <input type="checkbox" name="level-second-desc" id="level-second-desc"/>
+            </p>
+            <p>
+                <select name="level-third" id="level-third">
+                </select>
+                по убыванию? <input type="checkbox" name="level-third-desc" id="level-third-desc"/>
+            </p>
+            <input type="button" value="Сортировать">
+            <input type="button" value="Сбросить сортировку">
+        </form>
+    </div>
+    
+    <table id="list">
+        
+    </table>
+
+    <footer>
+        <p class="left">© Алиферов А.С., Б9121-09.03.04, 2023-2024</p>
+        <p class="right">✉ VK: @azzary</p>
+    </footer>
 </body>
+<script src="data.js"></script>
+<script src="program.js"></script>
 </html>
