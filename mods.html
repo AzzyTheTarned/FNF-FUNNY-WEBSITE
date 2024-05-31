@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>Самые популярные моды FNF</title>
     <link rel="stylesheet" href="css/mods.css">
+    <link rel="icon" href="images/mommy-icon.png">
+    <script src="http://d3js.org/d3.v7.min.js"> </script>
 </head>
 
 <body>
@@ -37,11 +39,8 @@
             <img src="images/gamebanana-logo.png">
             <br>
             Данные представлены на середину мая 2024.
-            <br>
-            <br>
         </p>
     </article>
-
     <div class="forms">
         <form id="filter">
             <h4>Фильтр</h4>
@@ -76,7 +75,6 @@
             <input type="button" value="Отфильтровать">
             <input type="button" value="Очистить фильтры">
         </form>
-    
         <form id="sort">
             <h4>Сортировка</h4>
             <p> Сортировать по</p>
@@ -103,7 +101,22 @@
     <table id="list">
         
     </table>
-
+    <form id="diagram">
+        <h4>Диаграмма</h4>
+        <p>Значение по оси OX</p>
+        <input type="radio" name="ox" value="Название" checked>Название<br>
+        <p>Значение по оси OY</p>
+        <input type="radio" name="oy" value="Скачивания" checked>Скачивания<br>
+        <input type="radio" name="oy" value="Лайки">Лайки<br>
+        <input type="radio" name="oy" value="Просмотры">Просмотры
+        <p>Тип диаграммы</p>
+        <input type="checkbox" name="barred" value="Столбчатая">Столбчатая
+        <p>
+            <input type="button" value="Построить" onclick="drawGraph(this.form)">
+        </p>
+    </form><br>
+    <svg></svg>
+    <br>
     <footer>
         <p class="left">© Алиферов А.С., Б9121-09.03.04, 2023-2024</p>
         <p class="right">✉ VK: @azzary</p>

@@ -1,3 +1,28 @@
+let translateYear = (year) => {
+    let val;
+    switch (year) {
+        case 2020:
+            val = 0.25;
+            break;
+        case 2021:
+            val = 0.45;
+            break;
+        case 2022:
+            val = 0.65;
+            break;
+        case 2023:
+            val = 0.9;
+            break;
+        case 2024:
+            val = 1;
+            break;
+        default:
+            val = 1;
+            break;
+    }
+    return val;
+}
+
 //выводим таблицу на страницу
 let createTable = (data, idTable) => {
     // находим таблицу
@@ -341,4 +366,97 @@ let clearSortRestoreFilter = (idTable, sortForm, filterForm) => {
 
 document.querySelector('input[type="button"][value="Сбросить сортировку"]').addEventListener('click', function () {
     clearSortRestoreFilter('list', document.forms.sort, document.forms.filter);
+});
+
+const marginX = 50;
+const marginY = 50;
+const height = 800;
+const width = 1600;
+
+let svg = d3.select("svg").attr("height", height).attr("width", width);
+
+
+function createArrGraph(data, keyX, keyY) {
+
+    let arrGraph = [];
+    for (let i = 0; i < data.length; i++) {
+        arrGraph.push({
+            x: data[i][keyX],
+            y: data[i][keyY],
+            a: data[i]['Год выхода']
+        });
+    }
+    arrGraph.sort((a, b) => +b.y - +a.y);
+    return arrGraph;
+}
+
+function drawGraph(data) {
+    const keyX = data.ox.value;
+    const keyY = data.oy.value;
+    const isBarred = data.barred.checked;
+
+    const arrGraph = createArrGraph(mods, keyX, keyY);
+
+    svg.selectAll('*').remove();
+
+    const [scX, scY] = createAxis(arrGraph);
+    
+    createChart(arrGraph, scX, scY, isBarred);
+}
+
+function createAxis(data) {
+    let scaleX = d3.scaleBand()
+        .domain(data.map(d => d.x))
+        .range([0, width - 2 * marginX]);
+    let scaleY = d3.scaleLinear()
+        .domain([0, d3.max(data, d => d.y)])
+        .range([height - 2 * marginY, 0]);
+    
+    let axisX = d3.axisBottom(scaleX);
+    let axisY = d3.axisLeft(scaleY);
+
+    svg.append("g")
+        .attr("transform", `translate(${marginX}, ${height - marginY})`)
+        .call(axisX)
+        .selectAll("text") // подписи на оси - наклонные
+        .style("text-anchor", "end")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+        .attr("transform", "rotate(-45)");
+
+    svg.append("g")
+        .attr("transform", `translate(${marginX}, ${marginY})`)
+        .call(axisY);
+
+    return [scaleX, scaleY];
+}
+
+function createChart(data, scaleX, scaleY, isBarred) {
+    if (isBarred) {
+        svg.selectAll("rect")
+            .data(data)
+            .enter()
+            .append("rect")
+            .attr("x", d => scaleX(d.x) + marginX + scaleX.bandwidth() / 4)
+            .attr("y", d => scaleY(d.y) + marginY)
+            .attr("width", scaleX.bandwidth() / 2)
+            .attr("height", d => height - marginY * 2 - scaleY(d.y))
+            .attr("fill", `rgba(189, 82, 6, ${0.865})`);
+    }
+    else {
+        let line = d3.line()
+        .x(d => scaleX(d.x) + marginX + scaleX.bandwidth() / 2)
+        .y(d => scaleY(d.y) + marginY);
+
+    svg.append("path")
+        .data([data])
+        .attr("fill", `none`)
+        .attr("stroke", `rgba(189, 82, 6, ${0.865})`)
+        .attr("stroke-width", 2)
+        .attr("d", line);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    drawGraph(document.forms.diagram);
 });
